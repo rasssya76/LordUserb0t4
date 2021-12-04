@@ -473,7 +473,7 @@ Minat? Pm wa.me/${owner_number}`,
 				return [...text.matchAll(/@([0-9]{5,16}|0)/g)].map(v => v[1] + '@s.whatsapp.net')
 				}
 			const reply = (teks) => {
-				return Zeeone.sendMessage(from, teks, text, {quoted: Ofc, contextInfo: { mentionedJid: parseMention(teks) }})
+				return Zeeone.sendMessage(from, teks, text, {quoted: ftroli, contextInfo: { mentionedJid: parseMention(teks) }})
 				}
 			const sendImage = (teks) => {
 				Zeeone.sendMessage(from, teks, image, {quoted:Ofc})
@@ -491,13 +491,13 @@ Minat? Pm wa.me/${owner_number}`,
 				Zeeone.sendMessage(hehe, teks, text)
 				}
 			const mentions = (teks, memberr, id) => {
-				(id == null || id == undefined || id == false) ? Zeeone.sendMessage(from, {text: teks.trim(), jpegThumbnail: thumbnail}, extendedText, { sendEphemeral: true, contextInfo: { "mentionedJid": memberr } }) : Zeeone.sendMessage(from, {text: teks.trim(), jpegThumbnail: thumbnail}, extendedText, { sendEphemeral: true, quoted: Ofc, contextInfo: { "mentionedJid": memberr } })
+				(id == null || id == undefined || id == false) ? Zeeone.sendMessage(from, {text: teks.trim(), jpegThumbnail: thumbnail}, extendedText, { sendEphemeral: true, contextInfo: { "mentionedJid": memberr } }) : Zeeone.sendMessage(from, {text: teks.trim(), jpegThumbnail: thumbnail}, extendedText, { sendEphemeral: true, quoted: ftroli, contextInfo: { "mentionedJid": memberr } })
 				}
 			const getUserrRandomId = () => {
 				return _user[Math.floor(Math.random() * _user.length)].id
 				}
 				const sendTextWithMentions = (teks, member, id) => {
-				(id == null || id == undefined || id == false) ? Zeeone.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": member } }) : Zeeone.sendMessage(from, teks.trim(), extendedText, { quoted: Ofc, contextInfo: { "mentionedJid": member } })
+				(id == null || id == undefined || id == false) ? Zeeone.sendMessage(from, teks.trim(), extendedText, { contextInfo: { "mentionedJid": member } }) : Zeeone.sendMessage(from, teks.trim(), extendedText, { quoted: ftroli, contextInfo: { "mentionedJid": member } })
 				} 
 			function monospace(string) {
 				return '```' + string + '```'
@@ -571,7 +571,7 @@ Minat? Pm wa.me/${owner_number}`,
 				}
 			const sendKontak = (from, nomor, nama, org = "") => {
 				const vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:' + org + '\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
-				Zeeone.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: Ofc})
+				Zeeone.sendMessage(from, {displayname: nama, vcard: vcard}, MessageType.contact, {quoted: ftroli})
 			}
 			const hideTagKontak = async(from, nomor, nama) => {
 				vcard = 'BEGIN:VCARD\n' + 'VERSION:3.0\n' + 'FN:' + nama + '\n' + 'ORG:Kontak\n' + 'TEL;type=CELL;type=VOICE;waid=' + nomor + ':+' + nomor + '\n' + 'END:VCARD'
@@ -701,7 +701,7 @@ Minat? Pm wa.me/${owner_number}`,
                     if(mime.split("/")[0] === "audio"){
                         mime = Mimetype.mp4Audio
                     }
-                    Zeeone.sendMessage(to, media, type, { quoted: Ofc, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
+                    Zeeone.sendMessage(to, media, type, { quoted: ftroli, mimetype: mime, caption: text,contextInfo: {"mentionedJid": mids}})
                     
                     fs.unlinkSync(filename)
                 });
@@ -712,29 +712,29 @@ Minat? Pm wa.me/${owner_number}`,
             mime = res.headers['content-type']
             let type = mime.split("/")[0]+"Message"
             if(mime.split("/")[0] === "gif"){
-                return Zeeone.sendMessage(from, await getBuffer(url), MessageType.video, {caption: caption, quoted: Ofc, gifPlayback: true, mimetype: 'video/mp4', contextInfo: {"mentionedJid": men ? men : []}})
+                return Zeeone.sendMessage(from, await getBuffer(url), MessageType.video, {caption: caption, quoted: ftroli, gifPlayback: true, mimetype: 'video/mp4', contextInfo: {"mentionedJid": men ? men : []}})
             }
             if(mime === "application/pdf"){
                 type = MessageType.document
                 mime = Mimetype.pdf
-                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: Ofc, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: ftroli, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
             }
             if(mime.split("/")[0] === "audio"){
             	type = MessageType.audio
                 mime = Mimetype.mp4Audio
-                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: Ofc, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: ftroli, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
             }
             if(mime.split("/")[0] === "video"){
             	type = MessageType.video
                 mime = 'video/mp4'
-                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: Ofc, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
+                return Zeeone.sendMessage(from, await getBuffer(url), type, {caption: caption, quoted: ftroli, mimetype: mime, contextInfo: {"mentionedJid": men ? men : []}})
             }
             if(mime.split("/")[0] === "image"){
-            	return Zeeone.sendMessage(from, await getBuffer(url), image, {caption: caption, quoted: Ofc, contextInfo: {"mentionedJid": men ? men : []}})
+            	return Zeeone.sendMessage(from, await getBuffer(url), image, {caption: caption, quoted: ftroli, contextInfo: {"mentionedJid": men ? men : []}})
             }
                 }
         const textImg = (teks) => {
-            return Zeeone.sendMessage(from, teks, text, {quoted: Ofc, thumbnail: thumbnail})
+            return Zeeone.sendMessage(from, teks, text, {quoted: ftroli, thumbnail: thumbnail})
         }
         const sendStickerUrl = async(to, url) => {
 			console.log(color(time, 'magenta'), color(moment.tz('Asia/Jakarta').format('HH:mm:ss'), "gold"), color('Downloading sticker...'))
@@ -865,7 +865,7 @@ const checkWin = (sender) => {
             for (let wn of _win) {
                 if (wn.jid === sender) {
                     let winCounts = winawal - wn.win
-                    if (winCounts <= 0) return Zeeone.sendMessage(from, `Anda belum pernah memainkan game tictactoe${enter}${enter}Jumlah kemenangan kamu didalam game *tictactoe* adalah: ${winCounts}`, text, { quoted: Ofc })
+                    if (winCounts <= 0) return Zeeone.sendMessage(from, `Anda belum pernah memainkan game tictactoe${enter}${enter}Jumlah kemenangan kamu didalam game *tictactoe* adalah: ${winCounts}`, text, { quoted: ftroli })
                     return `${winCounts}`
                     found = true
                 }
@@ -882,7 +882,7 @@ const checkWin = (sender) => {
             for (let ls of _lose) {
                 if (ls.jid === sender) {
                     let loseCounts = loseawal - ls.lose
-                    if (loseCounts <= 0) return Zeeone.sendMessage(from, `Anda belum pernah memainkan game tictactoe${enter}${enter}Jumlah kemenangan kamu didalam game *tictactoe* adalah: ${winCounts}`, text, { quoted: Ofc })
+                    if (loseCounts <= 0) return Zeeone.sendMessage(from, `Anda belum pernah memainkan game tictactoe${enter}${enter}Jumlah kemenangan kamu didalam game *tictactoe* adalah: ${winCounts}`, text, { quoted: ftroli })
                     return `${loseCounts}`
                     found = true
                 }
@@ -1010,7 +1010,7 @@ const checkWin = (sender) => {
                 })
                 fs.unlinkSync("./database/user/" + from + ".json");
 	} else if (sender == `${tttSkuy.Y}@s.whatsapp.net` &&  budy.toLowerCase() == 'n') {
-		Zeeone.sendMessage(from, `「 *GAME TICTACTOE REJECTED* 」\n\n• @${tttSkuy.Y} yahaha wahyu`, text, {quoted: Ofc, contextInfo: { mentionedJid: [tttSkuy.Y + "@s.whatsapp.net"]}})
+		Zeeone.sendMessage(from, `「 *GAME TICTACTOE REJECTED* 」\n\n• @${tttSkuy.Y} yahaha wahyu`, text, {quoted: ftroli, contextInfo: { mentionedJid: [tttSkuy.Y + "@s.whatsapp.net"]}})
 		fs.unlinkSync("./database/user/" + from + ".json");
 	}
 }
@@ -1026,25 +1026,25 @@ const checkWin = (sender) => {
 					for (let setikerr of setiker){
 						if (budy === setikerr){
 						buffer = fs.readFileSync(`./database/stick/${setikerr}.webp`)
-						Zeeone.sendMessage(from, buffer, sticker, {quoted: Ofc})
+						Zeeone.sendMessage(from, buffer, sticker, {quoted: ftroli})
 						}
 					}
 					for (let audionyee of audionye){
 						if (budy === audionyee){
 						buffer = fs.readFileSync(`./database/audio/${audionyee}.mp3`)
-						Zeeone.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: Ofc, ptt: true })
+						Zeeone.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: ftroli, ptt: true })
 						}
 					}
 					for (let imagenyee of audionye){
 						if (budy === imagenyee){
 						buffer = fs.readFileSync(`./database/image/${imagenyee}.jpg`)
-						Zeeone.sendMessage(from, buffer, image, {quoted: Ofc })
+						Zeeone.sendMessage(from, buffer, image, {quoted: ftroli })
 						}
 					}
 					for (let videonyee of videonye){
 						if (budy === videonyee){
 						buffer = fs.readFileSync(`./database/video/${videonyee}.mp4`)
-						Zeeone.sendMessage(from, buffer, video, {quoted: Ofc })
+						Zeeone.sendMessage(from, buffer, video, {quoted: ftroli })
 						}
 					}
 					if (isGroup && isAntiLink && !isOwner && !isGroupAdmins && isBotGroupAdmins){
@@ -1066,7 +1066,7 @@ const checkWin = (sender) => {
 							Zeeone.modifyChat(m.chat, 'delete', {
 							includeStarred: false
 						})
-						Zeeone.sendMessage(from, `「 *VIRTEX DETECTED* 」 `, text, {quoted: Ofc})
+						Zeeone.sendMessage(from, `「 *VIRTEX DETECTED* 」 `, text, {quoted: ftroli})
 						Zeeone.sendMessage(from, '*TANDAI TELAH DI BACA!!*\n'.repeat(300), text)
 					}
 					if (!m.isBaileys && isGroup && isBadword && !isOwner && !isGroupAdmins && !Ofc.key.fromMe){
@@ -1551,7 +1551,7 @@ Pastikan Transfer Limit Benar`)
 										for (let Y of res.data) {
 											teks += `🔖 *PERTANYAAN :* ${Y.pertanyaan}\n💬 *JAWABAN :* ${Y.jawaban[0].text}\n\n`
 											}
-											Zeeone.sendMessage(from, teks, text, {quoted: Ofc, detectLinks: false})
+											Zeeone.sendMessage(from, teks, text, {quoted: ftroli, detectLinks: false})
 										})
 									break
 						case 'mediafire':
@@ -1571,36 +1571,21 @@ Pastikan Transfer Limit Benar`)
 
 _Tunggu Proses Upload Media_`
 									reply(result)
-									sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: Ofc})
+									sendFileFromUrl(res[0].link, document, {mimetype: res[0].mime, filename: res[0].nama, quoted: ftroli})
 									break
-						case 'tiktoknowm':   case 'tiktok':
+				case 'tiktok': case 'ttnowm': case 'tiktoknowm':
 if (!q) return reply('Linknya?')
-									
-									if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid link')
-									let nowem = q
-									hx.ttdownloader(nowem)
-									.then(result => {
-										const { wm, nowm, audio } = result
-										axios.get(`https://tinyurl.com/api-create.php?url=${nowm}`)
-										.then(async (a) => {
-											me = `*Link* : ${a.data}`
-											Zeeone.sendMessage(from,{url:`${nowm}`},video,{mimetype:'video/mp4',quoted: Ofc, caption:me})
-											})
-										}).catch((err) => reply(`Link tidak valid`))
-									break 
-						case 'tiktokmusic': case 'tiktokaudio': 
+url = args[0]
+url = `https://api.lolhuman.xyz/api/tiktok?apikey=${lolkey}&url=${url}`
+get_result = await fetchJson(url)
+buffer = await getBuffer(get_result.result.link)
+Zeeone.sendMessage(from, buffer, video, {quoted: ftroli})
+             break
+			  case 'tiktokmusic': case 'tiktokaudio': 
 if (!q) return reply('Linknya?')
-									 
-									if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply('Invalid Link')
-									let audi = q
-									hx.ttdownloader(audi)
-									.then(result => {
-										const { wm, nowm, audio } = result
-										axios.get(`https://tinyurl.com/api-create.php?url=${audio}`)
-										.then(async (a) => {
-											Zeeone.sendMessage(from,{url:`${audio}`},MessageType.audio,{mimetype:'audio/mp4',quoted: Ofc})
-											})
-										}).catch((err) => reply(`Link tidak valid`))
+link = args[0]
+get_audio = await getBuffer(`https://api.lolhuman.xyz/api/tiktokmusic?apikey=${lolkey}&url=${link}`)
+Zeeone.sendMessage(from, get_audio, audio, { mimetype: Mimetype.mp4Audio, quoted: ftroli})
 									break
 						case 'playvideo': case 'video':{
 									if (!q) return reply(`Example : ${prefix+command} query`)
@@ -1724,7 +1709,7 @@ if (!q) return reply('Linknya?')
 										return reply('Error Hasil Tidak Ditemukan') 
 										}) 
 										result = `*JUDUL :* ${res[0].judul}\n*WIKI :* ${res[0].wiki}`
-										sendFileFromUrl(res[0].thumb, image, {quoted: Ofc, caption: result}).catch(e => {
+										sendFileFromUrl(res[0].thumb, image, {quoted: ftroli, caption: result}).catch(e => {
 											reply(result)
 										})
 									break
@@ -1802,7 +1787,7 @@ Alasan : ${reason}`, [sender], true)
 									tttSkuy.Y = args[0].replace("@", "");
 									fs.writeFileSync(`./database/user/${from}.json`, JSON.stringify(tttSkuy, null, 2))
 									starGame = `「 *MEMULAI GAME TICTACTOE* 」${enter}${enter}•@${sender.replace("@s.whatsapp.net", "")} Menantang Bermain Tictactoe ${enter}[ ${args[0]} ] Ketik Y/N untuk menerima atau menolak permainan${enter}${enter}`
-									Zeeone.sendMessage(from, starGame, text, {quoted: Ofc, contextInfo: { mentionedJid: [sender, args[0].replace("@", "") + "@s.whatsapp.net"],}})
+									Zeeone.sendMessage(from, starGame, text, {quoted: ftroli, contextInfo: { mentionedJid: [sender, args[0].replace("@", "") + "@s.whatsapp.net"],}})
 									break
 						case 'sewabot': 
 									let gakloo = [{
@@ -1857,7 +1842,7 @@ Alasan : ${reason}`, [sender], true)
 									canonicalUrl: `https://chat.whatsapp.com/${linkgc}`, 
 									description: `https://chat.whatsapp.com/${linkgc}`, 
 									title: `${groupName}`, 
-									jpegThumbnail: thumbnail}, 'extendedTextMessage', { detectLinks: false, contextInfo: {mentionedJid: [yeh]}, quoted: Ofc})
+									jpegThumbnail: thumbnail}, 'extendedTextMessage', { detectLinks: false, contextInfo: {mentionedJid: [yeh]}, quoted: ftroli})
 									break
 						case 'add':
 									try {
@@ -2264,7 +2249,7 @@ Alasan : ${reason}`, [sender], true)
 ⬣ Xp : ${getLevelingXp(sender)}
 ⬣ Status : ${isOwner?`Owner`:isPremium?`Premium User
 ⬣ Expired Prem : ${cek.days} d, ${cek.hours} h, ${cek.minutes} m, ${cek.seconds} s`:isUser?`Free User`:`Belum Daftar`}
-⬣ Baned : ${isBanned?`Terbanned`:`Tidak Terbanned`}`, quoted: Ofc, contextInfo:{mentionedJid:[sender]}})
+⬣ Baned : ${isBanned?`Terbanned`:`Tidak Terbanned`}`, quoted: ftroli, contextInfo:{mentionedJid:[sender]}})
 									}
 									break
 						case 'listonline': case 'listaktif':
@@ -2302,7 +2287,7 @@ Alasan : ${reason}`, [sender], true)
 💬 Deskripsi Group :
 \`\`\`${groupDesc}\`\`\``
 									var jk = await getBuffer(thumbnail)
-									Zeeone.sendMessage(from, jk, MessageType.image, {thumbnail: thumbnail, caption: nya, quoted: Ofc})
+									Zeeone.sendMessage(from, jk, MessageType.image, {thumbnail: thumbnail, caption: nya, quoted: ftroli})
 									break
 						case 'caripesan': case 'searchmessage':
 									if (!Ofc.key.fromMe && !isPremium) return reply(mess.only.prem)
@@ -2334,7 +2319,7 @@ Alasan : ${reason}`, [sender], true)
 										fs.unlinkSync(media)
 										if (err) return reply('Gagal, pada saat mengkonversi video ke mp3')
 										var buffer = fs.readFileSync(ran)
-										Zeeone.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: Ofc})
+										Zeeone.sendMessage(from, buffer, audio, {mimetype: 'audio/mp4', quoted: ftroli})
 										fs.unlinkSync(ran)
 										})
 									limitAdd(sender, limit)
@@ -2350,7 +2335,7 @@ Alasan : ${reason}`, [sender], true)
 										fs.unlinkSync(media)
 										if (err) return reply('Gagal, pada saat mengkonversi video ke mp3')
 										var buffer = fs.readFileSync(ran)
-										Zeeone.sendMessage(from, buffer, audio, {ptt: true, mimetype: 'audio/mp4', quoted: Ofc})
+										Zeeone.sendMessage(from, buffer, audio, {ptt: true, mimetype: 'audio/mp4', quoted: ftroli})
 										fs.unlinkSync(ran)
 										})
 										limitAdd(sender, limit)
@@ -2385,7 +2370,7 @@ Alasan : ${reason}`, [sender], true)
 									moew = await webp2gifFile(media)
 									console.log(moew)
 									Frd = await getBuffer(moew.result)
-									Zeeone.sendMessage(from, Frd, video, { mimetype: 'video/gif', caption: 'Sukses Lord', quoted: Ofc })
+									Zeeone.sendMessage(from, Frd, video, { mimetype: 'video/gif', caption: 'Sukses Lord', quoted: ftroli })
 									limitAdd(sender, limit)
 									break
 						case 'tovideo': case 'tomp4':
@@ -2396,7 +2381,7 @@ Alasan : ${reason}`, [sender], true)
 										ger = isQuotedSticker ? JSON.parse(JSON.stringify(Ofc).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : Ofc
 										owgi = await Zeeone.downloadAndSaveMediaMessage(ger)
 										webp2mp4File(owgi).then(res=>{
-											Zeeone.sendMessage(from, res.result, video, { mimetype: Mimetype.mp4, filename: 'tovideo.mp4',caption: 'Sukses Lord', quoted: Ofc})
+											Zeeone.sendMessage(from, res.result, video, { mimetype: Mimetype.mp4, filename: 'tovideo.mp4',caption: 'Sukses Lord', quoted: ftroli})
 											})
 										}else {
 											reply('reply stiker')
@@ -2542,13 +2527,13 @@ Alasan : ${reason}`, [sender], true)
 						const encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(Ofc).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : Ofc
 						buff = await Ofc.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							Ofc.sendMessage(_.jid, buff, audio, { quoted: Ofc })
+							Ofc.sendMessage(_.jid, buff, audio, { quoted: ftroli })
 						}
 						} else if (isMedia && !Ofc.message.videoMessage || isQuotedSticker) {
 						const encmedia = isQuotedSticker ? JSON.parse(JSON.stringify(Ofc).replace('quotedM', 'm')).message.extendedTextMessage.contextInfo : Ofc
 						buff = await Zeeone.downloadMediaMessage(encmedia)
 						for (let _ of anu) {
-							Zeeone.sendMessage(_.jid, buff, sticker, { quoted: Ofc, contextInfo: { forwardingScore: 508, isForwarded: true}})
+							Zeeone.sendMessage(_.jid, buff, sticker, { quoted: ftroli, contextInfo: { forwardingScore: 508, isForwarded: true}})
 							}
 							} else{
           reply('reply sticker/audio')
@@ -2667,7 +2652,7 @@ Alasan : ${reason}`, [sender], true)
 									if (args.length < 1) return reply(`Kirim perintah *${prefix}attp* teks`)
 									let ane = await getBuffer(`https://api.xteam.xyz/attp?file&text=${q}`)
 									fs.writeFileSync('./sticker/attp.webp', ane)
-									Zeeone.sendMessage(from, fs.readFileSync(`./sticker/attp.webp`), sticker, {quoted: Ofc})
+									Zeeone.sendMessage(from, fs.readFileSync(`./sticker/attp.webp`), sticker, {quoted: ftroli})
 									limitAdd(sender, limit)
 									break
 						case 'memegenerator': case 'memegen':
@@ -2684,7 +2669,7 @@ Alasan : ${reason}`, [sender], true)
 										var media = await Zeeone.downloadAndSaveMediaMessage(enmedia)
 										var njay = await uploadImages(media)
 										var resu = await getBuffer(`https://api.memegen.link/images/custom/${teks1}/${teks2}.png?background=${njay}`)
-										Zeeone.sendMessage(from, resu, image, {thumbnail: thumbnail, quoted: Ofc})
+										Zeeone.sendMessage(from, resu, image, {thumbnail: thumbnail, quoted: ftroli})
 										fs.unlinkSync(media)
 										} catch (e) {
 											return reply(`${e}`)
@@ -2706,7 +2691,7 @@ Alasan : ${reason}`, [sender], true)
 											var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink}`
 											fs.writeFileSync('./sticker/smemek.webp', sticknye)
 											if (error) return reply(mess.error)
-												Zeeone.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: Ofc })
+												Zeeone.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: ftroli })
 												} else if (isQuotedSticker){
 													reply(mess.wait)
 													var imgbb = require('imgbb-uploader')
@@ -2720,7 +2705,7 @@ Alasan : ${reason}`, [sender], true)
 														var sticknye = `https://api.memegen.link/images/custom/-/${bawah}.png?background=${tolink}`
 														fs.writeFileSync('./sticker/smemek.webp', sticknye)
 														if (error) return reply(mess.error)
-															Zeeone.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: Ofc })
+															Zeeone.sendMessage(from, fs.readFileSync(`./sticker/smemek.webp`), sticker, { quoted: ftroli })
 															fs.unlinkSync(ran)
 														
 														})
@@ -2766,7 +2751,7 @@ Alasan : ${reason}`, [sender], true)
 													console.log(color(`FINISH`,'magenta'))
 													exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 														if (error) return reply(mess.error)
-														Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: Ofc})
+														Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: ftroli})
 														fs.unlinkSync(media)
 														fs.unlinkSync(`./sticker/${sender}.webp`)
 														fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
@@ -2795,7 +2780,7 @@ Alasan : ${reason}`, [sender], true)
 																		console.log((`FINISH`,'magenta'))
 																		exec(`webpmux -set exif ./sticker/stickwm_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 																			if (error) return reply(mess.error)
-																			Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: Ofc})
+																			Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: ftroli})
 																			fs.unlinkSync(media)
 																			fs.unlinkSync(`./sticker/${sender}.webp`)
 																			fs.unlinkSync(`./sticker/stickwm_${sender}.exif`)
@@ -2810,7 +2795,7 @@ Alasan : ${reason}`, [sender], true)
 																				exif.create(packname1, author1, `takestick_${sender}`)
 																				exec(`webpmux -set exif ./sticker/takestick_${sender}.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 																				if (error) return reply(mess.error)
-																				Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: Ofc})
+																				Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: ftroli})
 																				fs.unlinkSync(media)
 																				fs.unlinkSync(`./sticker/takestick_${sender}.exif`)
 																				})
@@ -2838,7 +2823,7 @@ Alasan : ${reason}`, [sender], true)
 													console.log(color(`FINISH`,'magenta'))
 													exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 														if (error) return reply(mess.error)
-														Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: Ofc})
+														Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: ftroli})
 														limitAdd(sender, limit)
 														fs.unlinkSync(media)
 														fs.unlinkSync(`./sticker/${sender}.webp`)
@@ -2866,7 +2851,7 @@ Alasan : ${reason}`, [sender], true)
 																		console.log(color(`FINISH`,'magenta'))
 																		exec(`webpmux -set exif ./sticker/data.exif ./sticker/${sender}.webp -o ./sticker/${sender}.webp`, async (error) => {
 																			if (error) return reply(mess.error)
-																			Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: Ofc})
+																			Zeeone.sendMessage(from, fs.readFileSync(`./sticker/${sender}.webp`), sticker, {quoted: ftroli})
 																			limitAdd(sender, limit)
 																			fs.unlinkSync(media)
 																			fs.unlinkSync(`./sticker/${sender}.webp`)
@@ -2900,7 +2885,7 @@ Alasan : ${reason}`, [sender], true)
 									hehe = await Zeeone.sendMessage(from, {
 										"displayName": `${ini_list.length} kontak`,
 										"contacts": ini_list 
-										}, 'contactsArrayMessage', { quoted: Ofc })
+										}, 'contactsArrayMessage', { quoted: ftroli })
 										Zeeone.sendMessage(from, `Nih Kak Contact Owner Ku ✨`, text, {quoted: hehe})
 										}
 										break
@@ -2963,7 +2948,7 @@ Alasan : ${reason}`, [sender], true)
 										fs.unlinkSync(media)
 										if (err) return reply('Error!')
 										hah = fs.readFileSync(ran)
-										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: Ofc})
+										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: ftroli})
 										fs.unlinkSync(ran)
 										})
 										limitAdd(sender, limit)
@@ -2978,7 +2963,7 @@ Alasan : ${reason}`, [sender], true)
 											fs.unlinkSync(media)
 											if (err) return reply('Error!')
 											uhh = fs.readFileSync(ran)
-											Zeeone.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: Ofc,duration:999999999999})
+											Zeeone.sendMessage(from, uhh, audio, {mimetype: 'audio/mp4', ptt:true, quoted: ftroli,duration:999999999999})
 											fs.unlinkSync(ran)
 											})
 											} catch (e) {
@@ -2996,7 +2981,7 @@ Alasan : ${reason}`, [sender], true)
 											fs.unlinkSync(media)
 											if (err) return reply('Error!')
 											hah = fs.readFileSync(ran)
-											Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: Ofc})
+											Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: ftroli})
 											fs.unlinkSync(ran)
 											})
 											} catch (e) {
@@ -3013,7 +2998,7 @@ Alasan : ${reason}`, [sender], true)
 										fs.unlinkSync(media)
 										if (err) return reply('Error!')
 										hah = fs.readFileSync(ran)
-										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, quoted: Ofc})
+										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, quoted: ftroli})
 										fs.unlinkSync(ran)
 										})
 										limitAdd(sender, limit)
@@ -3025,7 +3010,7 @@ Alasan : ${reason}`, [sender], true)
 									media = await Zeeone.downloadAndSaveMediaMessage(encmedia)
 									cokmatane = Number(args[0])
 									hah = fs.readFileSync(media)
-									Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: cokmatane, ptt: true, quoted: Ofc})
+									Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', duration: cokmatane, ptt: true, quoted: ftroli})
 									fs.unlinkSync(media)
 									limitAdd(sender, limit)
 									break
@@ -3039,7 +3024,7 @@ Alasan : ${reason}`, [sender], true)
 											fs.unlinkSync(media)
 											if (err) return reply('Error!')
 											hah = fs.readFileSync(ran)
-											Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: Ofc,duration:99})
+											Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt:true, quoted: ftroli,duration:99})
 											fs.unlinkSync(ran)
 											})
 											 } catch (e) {	
@@ -3056,7 +3041,7 @@ Alasan : ${reason}`, [sender], true)
 										fs.unlinkSync(media)
 										if (err) return reply('Error!')
 										hah = fs.readFileSync(ran)
-										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, quoted: Ofc})
+										Zeeone.sendMessage(from, hah, audio, {mimetype: 'audio/mp4', ptt: true, quoted: ftroli})
 										fs.unlinkSync(ran)
 										})
 										limitAdd(sender, limit)
@@ -3119,7 +3104,7 @@ ${teks}`, members_id, true)
 												fs.unlinkSync(ranm)
 												buff = fs.readFileSync(rano)
 												if (err) return reply(mess.error)
-												Zeeone.sendMessage(from, buff, audio, {quoted: Ofc, ptt:true})
+												Zeeone.sendMessage(from, buff, audio, {quoted: ftroli, ptt:true})
 												fs.unlinkSync(rano)
 												})
 												})
@@ -3135,7 +3120,7 @@ ${teks}`, members_id, true)
 															fs.unlinkSync(ranm)
 															buff = fs.readFileSync(rano)
 															if (err) return reply(mess.error)
-															Zeeone.sendMessage(from, buff, audio, {quoted: Ofc, ptt:true})
+															Zeeone.sendMessage(from, buff, audio, {quoted: ftroli, ptt:true})
 															fs.unlinkSync(rano)
 															})
 														})
@@ -3250,7 +3235,7 @@ break
 									if (!isOwner && !Ofc.key.fromMe) return
 									anu = await fetchJson(`https://lolhuman.herokuapp.com/api/checkapikey?apikey=${lolkey}`)
 									teks = `─「 *APIKEY CEK* 」─\n\n➸ *Username :* ${anu.result.username}\n➸ *REQUEST :* ${anu.result.requests}\n➸ *Today :* ${anu.result.today}\n➸ *Akun Type :* ${anu.result.account_type}\n➸ *Expired :* ${anu.result.expired}`
-									Zeeone.sendMessage(`${ownerNumber}`, teks, text, {quoted: Ofc})
+									Zeeone.sendMessage(`${ownerNumber}`, teks, text, {quoted: ftroli})
 									break
 						case 'nulis':
 									reply(`*Example*\n${prefix}nuliskiri\n${prefix}nuliskanan\n${prefix}foliokiri\n${prefix}foliokanan`)
@@ -3279,7 +3264,7 @@ break
 									])
 									.on('error', () => reply(mess.error))
 									.on('exit', () => {
-										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/buku/setelahkiri.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: Ofc, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
+										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/buku/setelahkiri.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: ftroli, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
 										limitAdd(sender, limit)
 										})
 									}
@@ -3308,7 +3293,7 @@ break
 									])
 									.on('error', () => reply(mess.error))
 									.on('exit', () => {
-										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/buku/setelahkanan.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: Ofc, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
+										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/buku/setelahkanan.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: ftroli, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
 										limitAdd(sender, limit)
 										})
 									}
@@ -3337,7 +3322,7 @@ break
 									])
 									.on('error', () => reply(mess.error))
 									.on('exit', () => {
-										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/folio/setelahkiri.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: Ofc, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
+										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/folio/setelahkiri.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: ftroli, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
 										limitAdd(sender, limit)
 										})
 									}
@@ -3366,7 +3351,7 @@ break
 									])
 									.on('error', () => reply(mess.error))
 									.on('exit', () => {
-										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/folio/setelahkanan.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: Ofc, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
+										Zeeone.sendMessage(from, fs.readFileSync('./media/nulis/images/folio/setelahkanan.jpg'), image, {thumbnail:Buffer.alloc(0),quoted: ftroli, caption: `Jangan Malas Lord. Jadilah siswa yang rajin ರ_ರ`})
 										limitAdd(sender, limit)
 									})
 									}
@@ -3382,7 +3367,7 @@ break
 											pp = `${imagebb}`
 											}
 											buffer = await getBuffer(pp)
-											Zeeone.sendMessage(from, buffer, image, {quoted: Ofc, caption: `*Profile Picture Of @${mentioned.split("@")[0]}*`, thumbnail: thumbnail, contextInfo:{mentionedJid:[mentioned]}})
+											Zeeone.sendMessage(from, buffer, image, {quoted: ftroli, caption: `*Profile Picture Of @${mentioned.split("@")[0]}*`, thumbnail: thumbnail, contextInfo:{mentionedJid:[mentioned]}})
 											}
 									break
 						case 'getnum': case 'getnomor': case 'getnumber':
@@ -3413,7 +3398,7 @@ break
 										+ `ORG:KONTAK;\n`
 										+ `TEL;type=CELL;type=VOICE;waid=${mentioned.split("@")[0]}:+${mentioned.split("@")[0]}\n`
 										+ 'END:VCARD'
-										Zeeone.sendMessage(from, {displayname: "Jeff", vcard: ynkos}, MessageType.contact, { quoted: Ofc})
+										Zeeone.sendMessage(from, {displayname: "Jeff", vcard: ynkos}, MessageType.contact, { quoted: ftroli})
 										} else {
 											const ynkos = 'BEGIN:VCARD\n' 
 											+ 'VERSION:3.0\n' 
@@ -3421,7 +3406,7 @@ break
 											+ `ORG:KONTAK;\n`
 											+ `TEL;type=CELL;type=VOICE;waid=${q.split('|')[0]}:+${q.split('|')[0]}\n`
 											+ 'END:VCARD'
-											Zeeone.sendMessage(from, {displayname: "Jeff", vcard: ynkos}, MessageType.contact, { quoted: Ofc})
+											Zeeone.sendMessage(from, {displayname: "Jeff", vcard: ynkos}, MessageType.contact, { quoted: ftroli})
 											}
 									break 
 						case 'notif':
@@ -3438,7 +3423,7 @@ break
 											contextInfo: {
 												mentionedJid: jids
 												},
-												quoted: Ofc
+												quoted: ftroli
 												}
 												await Zeeone.sendMessage(from, options, text)
 												limitAdd(sender, limit)
@@ -3600,7 +3585,7 @@ break
 									for (let i of cmdDB){
 										txtt += `*Respon :* ${i.commands}\n*Jawaban :* ${i.jawaban}\n*Created :* @${i.created.split("@")[0]}\n\n`
 										}
-										Zeeone.sendMessage(`${ownerNumber}`, txtt, text, { quoted: Ofc, contextInfo:{ mentionedJid: parseMention(txtt) }})
+										Zeeone.sendMessage(`${ownerNumber}`, txtt, text, { quoted: ftroli, contextInfo:{ mentionedJid: parseMention(txtt) }})
 										break
 						case 'chatinfo': case 'sider':{
 									if (!isGroup) return reply(mess.only.group)
@@ -3649,8 +3634,8 @@ break
 													teksx1 += `📛 Nama : @${i.jid.split('@')[0]}\n`
 													teksx1 += `⏰ Waktu : ${toTime(i.t, true)}\n📅 Tanggal : ${toBulan(i.t, true)}\n\n`
 													}
-												Zeeone.sendMessage(from, teksx, text, { sendEphemeral: false, quoted: Ofc, thumbnail: thumbnail, contextInfo: { forwardingScore: 999, isForwarded: false, mentionedJid: readdin } })
-												Zeeone.sendMessage(from, teksx1, text, { sendEphemeral: false, quoted: Ofc, thumbnail: thumbnail, contextInfo: { forwardingScore: 999, isForwarded: false, mentionedJid: readon } })
+												Zeeone.sendMessage(from, teksx, text, { sendEphemeral: false, quoted: ftroli, thumbnail: thumbnail, contextInfo: { forwardingScore: 999, isForwarded: false, mentionedJid: readdin } })
+												Zeeone.sendMessage(from, teksx1, text, { sendEphemeral: false, quoted: ftroli, thumbnail: thumbnail, contextInfo: { forwardingScore: 999, isForwarded: false, mentionedJid: readon } })
 												}
 												break
 						case 'jadian':
@@ -3791,7 +3776,7 @@ ${res.desc ? `${res.desc}` : 'Gada'}
 											profilePic = `${imagebb}`
 											}
 											anay = await getBuffer(profilePic)
-											Zeeone.sendMessage(from, anay, image, {quoted: Ofc, thumbnail: thumbnail, caption: caption, contextInfo: {
+											Zeeone.sendMessage(from, anay, image, {quoted: ftroli, thumbnail: thumbnail, caption: caption, contextInfo: {
 												mentionedJid: Zeeone.parseMention(caption)
 												}})
 												} catch (e) {
@@ -3826,7 +3811,7 @@ let papako = [{
 if (budy.startsWith('x')){
 try {
 if (!Ofc.key.fromMe && !isOwner && !isCreator) return reply(mess.only.owner)
-return Zeeone.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: Ofc})
+return Zeeone.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: ftroli})
 } catch(err) {
 e = String(err)
 reply(e)
@@ -3835,7 +3820,7 @@ reply(e)
 if (budy.startsWith('>')){
 try {
 	if (!Ofc.key.fromMe && !isOwner && !isCreator) return reply(mess.only.owner)
-return Zeeone.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: Ofc})
+return Zeeone.sendMessage(from, JSON.stringify(eval(budy.slice(2)),null,'\t'),text, {quoted: ftroli})
 } catch(err) {
 e = String(err)
 reply(e)
